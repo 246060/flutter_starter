@@ -1,5 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'config.dart';
+
+final log = getLogger();
+
 class ProviderLogger extends ProviderObserver {
   @override
   void didUpdateProvider(
@@ -8,10 +12,9 @@ class ProviderLogger extends ProviderObserver {
     Object? newValue,
     ProviderContainer container,
   ) {
-    print('''
-{
-  "provider": "${provider.name ?? provider.runtimeType}",
-  "newValue": "$newValue"
-}''');
+    log.i({
+      provider: provider.name ?? provider.runtimeType,
+      newValue: newValue,
+    });
   }
 }
