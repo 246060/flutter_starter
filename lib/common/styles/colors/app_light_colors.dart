@@ -3,20 +3,20 @@ import 'package:flutter/material.dart';
 import 'app_colors.dart';
 
 class AppLightColors extends AppColors {
+  AppLightColors._();
+
+  static final _instance = AppLightColors._();
+
+  factory AppLightColors() {
+    return _instance;
+  }
+
   @override
   ColorScheme get colorScheme {
-    const colorScheme = ColorScheme.light();
-    return ColorScheme(
+    return const ColorScheme.light(
         brightness: Brightness.light,
-        primary: colorScheme.primary,
-        onPrimary: colorScheme.onPrimary,
-        secondary: colorScheme.secondary,
-        onSecondary: colorScheme.onSecondary,
-        error: colorScheme.error,
-        onError: colorScheme.onError,
-        background: colorScheme.background,
-        onBackground: colorScheme.onBackground,
-        surface: colorScheme.surface,
-        onSurface: colorScheme.onSurface);
+        primary: Colors.indigo,
+        secondary: Colors.red,
+        onSecondary: Colors.white);
   }
 }

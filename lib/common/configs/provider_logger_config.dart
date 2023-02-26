@@ -5,6 +5,15 @@ import 'config.dart';
 final log = getLogger();
 
 class ProviderLogger extends ProviderObserver {
+
+  ProviderLogger._();
+
+  static final _instance = ProviderLogger._();
+
+  factory ProviderLogger(){
+    return _instance;
+  }
+
   @override
   void didUpdateProvider(
     ProviderBase provider,
