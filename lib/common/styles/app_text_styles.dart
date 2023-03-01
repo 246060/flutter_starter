@@ -1,42 +1,63 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_starter/common/styles/styles.dart';
 
 class AppTextStyles {
-  static final baseLight = ThemeData.light().textTheme;
-  static final baseDark = ThemeData.dark().textTheme;
+  final TextTheme light;
+  final TextTheme dark;
 
-  static TextTheme get light => TextTheme(
-        titleSmall: baseLight.titleSmall?.copyWith(color: Colors.amber),
-        titleMedium: baseLight.titleMedium?.copyWith(color: Colors.cyan),
-        titleLarge: baseLight.titleLarge?.copyWith(color: Colors.amber),
-        labelSmall: baseLight.labelSmall?.copyWith(color: Colors.amber),
-        labelMedium: baseLight.labelMedium?.copyWith(color: Colors.amber),
-        labelLarge: baseLight.labelLarge?.copyWith(color: Colors.amber),
-        headlineSmall: baseLight.headlineSmall?.copyWith(color: Colors.amber),
-        headlineMedium: baseLight.headlineMedium?.copyWith(color: Colors.amber),
-        headlineLarge: baseLight.headlineLarge?.copyWith(color: Colors.amber),
-        displaySmall: baseLight.displaySmall?.copyWith(color: Colors.amber),
-        displayMedium: baseLight.displayMedium?.copyWith(color: Colors.amber),
-        displayLarge: baseLight.displayLarge?.copyWith(color: Colors.amber),
-        bodySmall: baseLight.bodySmall?.copyWith(color: Colors.amber),
-        bodyMedium: baseLight.bodyMedium?.copyWith(color: Colors.amber),
-        bodyLarge: baseLight.bodyLarge?.copyWith(color: Colors.amber),
-      );
+  AppTextStyles._()
+      : light = _light(),
+        dark = _dark();
 
-  static TextTheme get dark => TextTheme(
-        titleSmall: baseLight.titleSmall?.copyWith(color: Colors.amber),
-        titleMedium: baseLight.titleMedium?.copyWith(color: Colors.cyan),
-        titleLarge: baseLight.titleLarge?.copyWith(color: Colors.amber),
-        labelSmall: baseLight.labelSmall?.copyWith(color: Colors.amber),
-        labelMedium: baseLight.labelMedium?.copyWith(color: Colors.amber),
-        labelLarge: baseLight.labelLarge?.copyWith(color: Colors.amber),
-        headlineSmall: baseLight.headlineSmall?.copyWith(color: Colors.amber),
-        headlineMedium: baseLight.headlineMedium?.copyWith(color: Colors.amber),
-        headlineLarge: baseLight.headlineLarge?.copyWith(color: Colors.amber),
-        displaySmall: baseLight.displaySmall?.copyWith(color: Colors.amber),
-        displayMedium: baseLight.displayMedium?.copyWith(color: Colors.amber),
-        displayLarge: baseLight.displayLarge?.copyWith(color: Colors.amber),
-        bodySmall: baseLight.bodySmall?.copyWith(color: Colors.amber),
-        bodyMedium: baseLight.bodyMedium?.copyWith(color: Colors.amber),
-        bodyLarge: baseLight.bodyLarge?.copyWith(color: Colors.amber),
-      );
+  static final _instance = AppTextStyles._();
+
+  factory AppTextStyles() {
+    return _instance;
+  }
+
+  static TextTheme _light() {
+    final base = ThemeData.light();
+    final colors = AppLightColors();
+
+    return base.textTheme.copyWith(
+      titleSmall: base.textTheme.titleSmall,
+      titleMedium: null,
+      titleLarge: null,
+      labelSmall: null,
+      labelMedium: null,
+      labelLarge: null,
+      headlineSmall: null,
+      headlineMedium: null,
+      headlineLarge: null,
+      displaySmall: null,
+      displayMedium: null,
+      displayLarge: null,
+      bodySmall: null,
+      bodyMedium: null,
+      bodyLarge: null,
+    );
+  }
+
+  static TextTheme _dark() {
+    final base = ThemeData.dark();
+    final colors = AppDarkColors();
+
+    return base.textTheme.copyWith(
+      titleSmall: base.textTheme.titleSmall,
+      titleMedium: null,
+      titleLarge: null,
+      labelSmall: null,
+      labelMedium: null,
+      labelLarge: null,
+      headlineSmall: null,
+      headlineMedium: null,
+      headlineLarge: null,
+      displaySmall: null,
+      displayMedium: null,
+      displayLarge: null,
+      bodySmall: null,
+      bodyMedium: null,
+      bodyLarge: null,
+    );
+  }
 }

@@ -1,12 +1,99 @@
 import 'package:flutter/material.dart';
-
-import 'styles.dart';
+import 'package:flutter_starter/common/styles/styles.dart';
 
 class AppThemes {
-  static final lightColors = AppLightColors();
-  static final darkColors = AppDarkColors();
+  late final ThemeData light;
+  late final ThemeData dark;
 
-  static ThemeData get light => ThemeData(colorScheme: lightColors.colorScheme);
+  AppThemes._()
+      : light = _light(),
+        dark = _dark();
 
-  static ThemeData get dark => ThemeData(colorScheme: darkColors.colorScheme);
+  static final _instance = AppThemes._();
+
+  factory AppThemes() {
+    return _instance;
+  }
+
+  static ThemeData _light() {
+    final baseTheme = ThemeData.light();
+    final baseColorScheme = baseTheme.colorScheme;
+    final colors = AppLightColors();
+
+    return baseTheme.copyWith(
+        textTheme: AppTextStyles().light,
+        colorScheme: baseColorScheme.copyWith(
+          primary: colors.primary,
+          onPrimary: null,
+          primaryContainer: null,
+          onPrimaryContainer: null,
+          secondary: null,
+          secondaryContainer: null,
+          onSecondary: null,
+          onSecondaryContainer: null,
+          background: null,
+          onBackground: null,
+          error: null,
+          errorContainer: null,
+          onError: null,
+          onErrorContainer: null,
+          tertiary: null,
+          tertiaryContainer: null,
+          onTertiary: null,
+          onTertiaryContainer: null,
+          surface: null,
+          surfaceTint: null,
+          surfaceVariant: null,
+          onSurface: null,
+          onSurfaceVariant: null,
+          outline: null,
+          outlineVariant: null,
+          scrim: null,
+          shadow: null,
+          inversePrimary: null,
+          inverseSurface: null,
+          onInverseSurface: null,
+        ));
+  }
+
+  static ThemeData _dark() {
+    final baseTheme = ThemeData.dark();
+    final baseColorScheme = baseTheme.colorScheme;
+    final colors = AppDarkColors();
+
+    return baseTheme.copyWith(
+        textTheme: AppTextStyles().dark,
+        colorScheme: baseColorScheme.copyWith(
+          primary: colors.primary,
+          onPrimary: null,
+          primaryContainer: null,
+          onPrimaryContainer: null,
+          secondary: null,
+          secondaryContainer: null,
+          onSecondary: null,
+          onSecondaryContainer: null,
+          background: null,
+          onBackground: null,
+          error: null,
+          errorContainer: null,
+          onError: null,
+          onErrorContainer: null,
+          tertiary: null,
+          tertiaryContainer: null,
+          onTertiary: null,
+          onTertiaryContainer: null,
+          surface: null,
+          surfaceTint: null,
+          surfaceVariant: null,
+          onSurface: null,
+          onSurfaceVariant: null,
+          outline: null,
+          outlineVariant: null,
+          scrim: null,
+          shadow: null,
+          inversePrimary: null,
+          inverseSurface: null,
+          onInverseSurface: null,
+        ));
+  }
 }

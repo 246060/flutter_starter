@@ -12,11 +12,5 @@ class AppLightColors extends AppColors {
   }
 
   @override
-  ColorScheme get colorScheme {
-    return const ColorScheme.light(
-        brightness: Brightness.light,
-        primary: Colors.indigo,
-        secondary: Colors.red,
-        onSecondary: Colors.white);
-  }
+  Color get primary => Colors.indigo;
 }

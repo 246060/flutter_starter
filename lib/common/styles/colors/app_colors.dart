@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
+import 'dart:ui';
 
 abstract class AppColors {
-  ColorScheme get colorScheme;
+  Color get primary;
 }

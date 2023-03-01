@@ -12,11 +12,5 @@ class AppDarkColors extends AppColors {
   }
 
   @override
-  ColorScheme get colorScheme {
-    return const ColorScheme.dark(
-        brightness: Brightness.dark,
-        primary: Colors.green,
-        secondary: Colors.yellow,
-        onSecondary: Colors.black);
-  }
+  Color get primary => Colors.black38;
 }

@@ -9,12 +9,12 @@ import 'common/configs/config.dart';
 final log = getLogger();
 
 void main() {
-  log.i("main start...");
+  log.i("flutter main function started...");
 
   runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
 
-    // 추가 비동기 작업
+    // 작업 추가 할 영역...
 
     runApp(ProviderScope(observers: [ProviderLogger()], child: const MyApp()));
 
