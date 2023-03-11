@@ -2,8 +2,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'config.dart';
 
-final log = getLogger();
-
 class ProviderLogger extends ProviderObserver {
 
   ProviderLogger._();

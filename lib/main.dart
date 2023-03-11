@@ -6,8 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'app.dart';
 import 'common/configs/config.dart';
 
-final log = getLogger();
-
 void main() {
   log.i("flutter main function started...");
 
