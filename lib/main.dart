@@ -1,21 +1,19 @@
-import 'dart:async';
+import "dart:async";
 
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:flutter_starter/app.dart";
+import "package:flutter_starter/common/configs/config.dart";
 
-import 'app.dart';
-import 'common/configs/config.dart';
-
-void main() {
+Future<void> main() async {
   log.i("flutter main function started...");
 
-  runZonedGuarded(() async {
+  await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
 
     // 작업 추가 할 영역...
 
     runApp(ProviderScope(observers: [ProviderLogger()], child: const MyApp()));
-
   }, (error, stack) {
     log.e("", error, stack);
   });

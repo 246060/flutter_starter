@@ -1,4 +1,4 @@
-import 'user.dart';
+import "package:flutter_starter/common/repositories/sample/user.dart";
 
 abstract class UserRepository {
   Future<User> findById(int id);

@@ -1,20 +1,16 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'config.dart';
+import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:flutter_starter/common/configs/config.dart";
 
 class ProviderLogger extends ProviderObserver {
+  factory ProviderLogger() => _instance;
 
   ProviderLogger._();
 
   static final _instance = ProviderLogger._();
 
-  factory ProviderLogger(){
-    return _instance;
-  }
-
   @override
   void didUpdateProvider(
-    ProviderBase provider,
+    ProviderBase<dynamic> provider,
     Object? previousValue,
     Object? newValue,
     ProviderContainer container,

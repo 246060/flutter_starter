@@ -1,7 +1,5 @@
-import 'package:logger/logger.dart';
+import "package:logger/logger.dart";
 
 final log = getLogger();
 
-Logger getLogger() {
-  return Logger(printer: PrettyPrinter(methodCount: 1));
-}
+Logger getLogger() => Logger(printer: PrettyPrinter(methodCount: 1));

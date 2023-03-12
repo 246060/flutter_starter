@@ -1,12 +1,8 @@
-import '../exceptions/error_message.dart';
+import "package:flutter_starter/common/exceptions/error_message.dart";
 
 enum RepositoryOperatorType { C, R, U, D }
 
 class RepositoryErrorMessage extends ErrorMessage {
-
-  final RepositoryOperatorType? operatorType;
-  final dynamic inputData;
-
   RepositoryErrorMessage({
     this.operatorType,
     this.inputData,
@@ -16,9 +12,16 @@ class RepositoryErrorMessage extends ErrorMessage {
     super.extra,
   });
 
+  final RepositoryOperatorType? operatorType;
+  final dynamic inputData;
+
   @override
-  RepositoryErrorMessage copyWith(
-          {ErrorCode? code, String? title, String? message, dynamic extra}) =>
+  RepositoryErrorMessage copyWith({
+    ErrorCode? code,
+    String? title,
+    String? message,
+    dynamic extra,
+  }) =>
       RepositoryErrorMessage(
         code: code ?? this.code,
         title: title ?? this.title,

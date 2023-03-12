@@ -1,15 +1,19 @@
-import '../configs/config.dart';
-import 'error_message.dart';
+import "package:flutter_starter/common/configs/config.dart";
+import "package:flutter_starter/common/exceptions/error_message.dart";
 
-abstract class ExceptionHandler {
-  ErrorMessage handle(
-      {required Exception exception, required ErrorMessage message});
+mixin ExceptionHandler {
+  ErrorMessage handle({
+    required Exception exception,
+    required ErrorMessage message,
+  });
 }
 
-class DefaultExceptionHandler extends ExceptionHandler {
+class DefaultExceptionHandler with ExceptionHandler {
   @override
-  ErrorMessage handle(
-      {required Exception exception, required ErrorMessage message}) {
+  ErrorMessage handle({
+    required Exception exception,
+    required ErrorMessage message,
+  }) {
     log.e(exception.toString());
     return message.copyWith(extra: exception.toString());
   }

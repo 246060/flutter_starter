@@ -1,19 +1,17 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_starter/common/styles/styles.dart';
+import "package:flutter/material.dart";
+import "package:flutter_starter/common/styles/styles.dart";
 
 class AppTextStyles {
-  final TextTheme light;
-  final TextTheme dark;
+  factory AppTextStyles() => _instance;
 
   AppTextStyles._()
       : light = _light(),
         dark = _dark();
 
-  static final _instance = AppTextStyles._();
+  final TextTheme light;
+  final TextTheme dark;
 
-  factory AppTextStyles() {
-    return _instance;
-  }
+  static final _instance = AppTextStyles._();
 
   static TextTheme _light() {
     final base = ThemeData.light();

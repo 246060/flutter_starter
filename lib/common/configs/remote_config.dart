@@ -1,7 +1,1 @@
-
-
-
-class RemoteConfig{
-
-
-}
+class RemoteConfig {}
