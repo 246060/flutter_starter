@@ -1,96 +1,49 @@
 import "package:dio/dio.dart";
 import "package:flutter_starter/common/exceptions/error_message.dart";
 import "package:flutter_starter/common/exceptions/exception_handler.dart";
-import "package:flutter_starter/common/repositories/repository_error_message.dart";
+import "package:flutter_starter/common/repositories/repository_exception.dart";
 
 class DioExceptionHandler with ExceptionHandler {
-  final String _title = "Network Error";
-
   @override
-  ErrorMessage handle({
-    required Exception exception,
-    required ErrorMessage message,
-  }) {
-    exception as DioError;
-    message as RepositoryErrorMessage;
+  ErrorMessage handle(Exception exception) {
+    final origin = (exception as DioRepositoryException).origin! as DioError;
 
-    if (exception.type == DioErrorType.connectionTimeout ||
-        exception.type == DioErrorType.sendTimeout ||
-        exception.type == DioErrorType.receiveTimeout) {
-      return handleTimeoutException(
-        exception: exception,
-        message: message,
-      );
-    } else if (exception.type == DioErrorType.badCertificate) {
-      return handleBadCertificateException(
-        exception: exception,
-        message: message,
-      );
-    } else if (exception.type == DioErrorType.badResponse) {
-      return handleBadResponseException(
-        exception: exception,
-        message: message,
-      );
-    } else if (exception.type == DioErrorType.cancel) {
-      return handleCancel(
-        exception: exception,
-        message: message,
-      );
-    } else if (exception.type == DioErrorType.connectionError) {
-      return handleConnectionErrorException(
-        exception: exception,
-        message: message,
-      );
+    if (origin.type == DioErrorType.connectionTimeout ||
+        origin.type == DioErrorType.sendTimeout ||
+        origin.type == DioErrorType.receiveTimeout) {
+      return handleTimeoutException(exception);
+    } else if (origin.type == DioErrorType.badCertificate) {
+      return handleBadCertificateException(exception);
+    } else if (origin.type == DioErrorType.badResponse) {
+      return handleBadResponseException(exception);
+    } else if (origin.type == DioErrorType.cancel) {
+      return handleCancel(exception);
+    } else if (origin.type == DioErrorType.connectionError) {
+      return handleConnectionErrorException(exception);
     } else {
-      return message.copyWith(
-        title: _title,
-        message: "Oops! unknown network error occurred",
-      );
+      return handleException(exception);
     }
   }
 
-  ErrorMessage handleTimeoutException({
-    required DioError exception,
-    required RepositoryErrorMessage message,
-  }) =>
-      message.copyWith(
-        title: _title,
-        message: "Oops! network timeout",
-      );
+  ErrorMessage handleTimeoutException(DioRepositoryException exception) =>
+      exception.errorMessage ?? ErrorMessage();
 
-  ErrorMessage handleBadCertificateException({
-    required DioError exception,
-    required RepositoryErrorMessage message,
-  }) =>
-      message.copyWith(
-        title: _title,
-        message: "Oops! network insufficient access",
-      );
+  ErrorMessage handleBadCertificateException(
+    DioRepositoryException exception,
+  ) =>
+      exception.errorMessage ?? ErrorMessage();
 
-  ErrorMessage handleBadResponseException({
-    required DioError exception,
-    required RepositoryErrorMessage message,
-  }) =>
-      message.copyWith(
-        title: _title,
-        message: "Oops! bad response",
-      );
+  ErrorMessage handleBadResponseException(DioRepositoryException exception) =>
+      exception.errorMessage ?? ErrorMessage();
 
-  ErrorMessage handleConnectionErrorException({
-    required DioError exception,
-    required RepositoryErrorMessage message,
-  }) =>
-      message.copyWith(
-        title: _title,
-        message: "Oops! network error",
-      );
+  ErrorMessage handleCancel(DioRepositoryException exception) =>
+      exception.errorMessage ?? ErrorMessage();
 
-  ErrorMessage handleCancel({
-    required DioError exception,
-    required RepositoryErrorMessage message,
-  }) =>
-      message.copyWith(
-        title: _title,
-        message: "Oops! network request cancel",
-      );
+  ErrorMessage handleConnectionErrorException(
+    DioRepositoryException exception,
+  ) =>
+      exception.errorMessage ?? ErrorMessage();
+
+  ErrorMessage handleException(DioRepositoryException exception) =>
+      exception.errorMessage ?? ErrorMessage();
 }

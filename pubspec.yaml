@@ -44,13 +44,15 @@ dependencies:
   flutter_riverpod: ^2.0.2
   flutter_slidable: ^2.0.0
   google_fonts: ^4.0.3
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
   intl: ^0.18.0
   location: ^4.4.0
   logger: ^1.2.2
   riverpod_annotation: ^1.0.4
 
   #shared_preferences: ^2.0.18
-  #hive: ^2.2.3
+
   #sqflite: ^2.2.4+1
 
 dev_dependencies:

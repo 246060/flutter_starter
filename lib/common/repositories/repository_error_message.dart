@@ -1,33 +1,22 @@
 import "package:flutter_starter/common/exceptions/error_message.dart";
 
-enum RepositoryOperatorType { C, R, U, D }
+enum OperatorType { create, read, update, delete }
 
 class RepositoryErrorMessage extends ErrorMessage {
-  RepositoryErrorMessage({
-    this.operatorType,
-    this.inputData,
-    super.code,
-    super.title,
-    super.message,
-    super.extra,
-  });
+  RepositoryErrorMessage({this.operatorType, this.inputData});
 
-  final RepositoryOperatorType? operatorType;
+  RepositoryErrorMessage.create({this.inputData})
+      : operatorType = OperatorType.create;
+
+  RepositoryErrorMessage.read({this.inputData})
+      : operatorType = OperatorType.read;
+
+  RepositoryErrorMessage.update({this.inputData})
+      : operatorType = OperatorType.update;
+
+  RepositoryErrorMessage.delete({this.inputData})
+      : operatorType = OperatorType.delete;
+
+  final OperatorType? operatorType;
   final dynamic inputData;
-
-  @override
-  RepositoryErrorMessage copyWith({
-    ErrorCode? code,
-    String? title,
-    String? message,
-    dynamic extra,
-  }) =>
-      RepositoryErrorMessage(
-        code: code ?? this.code,
-        title: title ?? this.title,
-        message: message ?? this.message,
-        extra: extra ?? this.extra,
-        operatorType: operatorType,
-        inputData: inputData,
-      );
 }

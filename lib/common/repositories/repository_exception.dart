@@ -1,23 +1,46 @@
+import "package:flutter_starter/common/exceptions/error_message.dart";
 import "package:flutter_starter/common/exceptions/exceptions.dart";
+import "package:flutter_starter/common/repositories/dio_exception_handler.dart";
+import "package:flutter_starter/common/repositories/hive_exception_handler.dart";
 import "package:flutter_starter/common/repositories/repository_error_message.dart";
+import "package:flutter_starter/common/repositories/sqlite_exception_handler.dart";
 
-class RepositoryException extends AppException {
+abstract class RepositoryException extends BaseExceptionEx {
   RepositoryException({
+    required super.handler,
     required super.origin,
-    super.handler,
-    this.operatorType,
-    this.inputData,
+    this.errorMessage,
   });
 
-  final RepositoryOperatorType? operatorType;
-  final dynamic inputData;
+  final ErrorMessage? errorMessage;
+}
 
-  @override
-  RepositoryErrorMessage get message => handler.handle(
-        exception: origin,
-        message: RepositoryErrorMessage(
-          operatorType: operatorType,
-          inputData: inputData,
-        ),
-      ) as RepositoryErrorMessage;
+class DioRepositoryException extends RepositoryException {
+  DioRepositoryException({
+    required super.origin,
+    RepositoryErrorMessage? errorMessage,
+  }) : super(
+          handler: DioExceptionHandler(),
+          errorMessage: errorMessage ?? RepositoryErrorMessage(),
+        );
+}
+
+class HiveRepositoryException extends RepositoryException {
+  HiveRepositoryException({
+    required super.origin,
+    RepositoryErrorMessage? errorMessage,
+  }) : super(
+          handler: HiveExceptionHandler(),
+          errorMessage: errorMessage ?? RepositoryErrorMessage(),
+        );
+}
+
+class SqliteRepositoryException extends RepositoryException {
+  SqliteRepositoryException({
+    required super.origin,
+    RepositoryErrorMessage? errorMessage,
+  }) : super(
+          handler: SqliteExceptionHandler(),
+          errorMessage: errorMessage ?? RepositoryErrorMessage(),
+        );
 }

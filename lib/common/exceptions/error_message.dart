@@ -8,7 +8,7 @@ class ErrorMessage {
     this.extra,
   });
 
-  final ErrorCode? code;
+  final ErrorCode code;
   final String title;
   final String message;
   final dynamic extra;
