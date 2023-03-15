@@ -4,6 +4,7 @@ import "package:dio/dio.dart";
 import "package:flutter/material.dart";
 import "package:flutter_starter/common/configs/config.dart";
 import "package:flutter_starter/common/repositories/dio_exception_handler.dart";
+import "package:flutter_starter/common/repositories/dio_log_interceptor.dart";
 import "package:flutter_starter/common/repositories/sample/http_user_repository.dart";
 import "package:flutter_starter/common/styles/styles.dart";
 import "package:flutter_starter/home_screen.dart";
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
             receiveTimeout: const Duration(seconds: 5),
           ),
         )..interceptors.add(
-            LogInterceptor(
+            DioLogInterceptor(
               requestBody: true,
               responseBody: true,
               logPrint: log.i,

@@ -16,6 +16,12 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 
+## 변경
+- dio log interceptor
+  - 기본 print 인데 app에서 사용하는 logger를 넘겨주면 로그가 보기 어렵게 나온다. 
+  그래서 성능 및 보기 쉽게 나오게 커스텀 함.
+
+
 ## Tip
 
 1. [JSON to Dart](https://javiercbk.github.io/json_to_dart/)

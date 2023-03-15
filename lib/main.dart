@@ -13,7 +13,8 @@ Future<void> main() async {
     WidgetsFlutterBinding.ensureInitialized();
 
     await Hive.initFlutter();
-    final sampleBox = await Hive.openBox("flutter_starter");
+    final sampleBox =
+        await Hive.openBox<Map<dynamic, dynamic>>("flutter_starter");
     log.i("Hive Path: ${sampleBox.path}");
 
     runApp(
