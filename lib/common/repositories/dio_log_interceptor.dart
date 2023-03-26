@@ -1,4 +1,4 @@
-import "package:dio/dio.dart";
+import 'package:dio/dio.dart';
 
 class DioLogInterceptor extends LogInterceptor {
   DioLogInterceptor({
@@ -18,30 +18,30 @@ class DioLogInterceptor extends LogInterceptor {
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
-    stringBuffer.writeln("*** Request ***");
-    _printKV("uri", options.uri);
+    stringBuffer.writeln('*** Request ***');
+    _printKV('uri', options.uri);
     //options.headers;
 
     if (request) {
-      _printKV("method", options.method);
-      _printKV("responseType", options.responseType.toString());
-      _printKV("followRedirects", options.followRedirects);
-      _printKV("persistentConnection", options.persistentConnection);
-      _printKV("connectTimeout", options.connectTimeout);
-      _printKV("sendTimeout", options.sendTimeout);
-      _printKV("receiveTimeout", options.receiveTimeout);
+      _printKV('method', options.method);
+      _printKV('responseType', options.responseType.toString());
+      _printKV('followRedirects', options.followRedirects);
+      _printKV('persistentConnection', options.persistentConnection);
+      _printKV('connectTimeout', options.connectTimeout);
+      _printKV('sendTimeout', options.sendTimeout);
+      _printKV('receiveTimeout', options.receiveTimeout);
       _printKV(
-        "receiveDataWhenStatusError",
+        'receiveDataWhenStatusError',
         options.receiveDataWhenStatusError,
       );
-      _printKV("extra", options.extra);
+      _printKV('extra', options.extra);
     }
     if (requestHeader) {
-      stringBuffer.writeln("headers:");
+      stringBuffer.writeln('headers:');
       options.headers.forEach(_printKV);
     }
     if (requestBody) {
-      stringBuffer.writeln("data:");
+      stringBuffer.writeln('data:');
       _printAll(options.data);
     }
 
@@ -56,7 +56,7 @@ class DioLogInterceptor extends LogInterceptor {
     Response<dynamic> response,
     ResponseInterceptorHandler handler,
   ) async {
-    stringBuffer.writeln("*** Response ***");
+    stringBuffer.writeln('*** Response ***');
     _printResponse(response);
 
     logPrint(stringBuffer.toString().trimRight());
@@ -72,9 +72,9 @@ class DioLogInterceptor extends LogInterceptor {
   ) async {
     if (error) {
       stringBuffer
-        ..writeln("*** DioError ***:")
-        ..writeln("uri: ${err.requestOptions.uri}")
-        ..writeln("$err");
+        ..writeln('*** DioError ***:')
+        ..writeln('uri: ${err.requestOptions.uri}')
+        ..writeln('$err');
 
       if (err.response != null) {
         _printResponse(err.response!);
@@ -88,29 +88,29 @@ class DioLogInterceptor extends LogInterceptor {
   }
 
   void _printResponse(Response<dynamic> response) {
-    _printKV("uri", response.requestOptions.uri);
+    _printKV('uri', response.requestOptions.uri);
     if (responseHeader) {
-      _printKV("statusCode", response.statusCode);
+      _printKV('statusCode', response.statusCode);
       if (response.isRedirect == true) {
-        _printKV("redirect", response.realUri);
+        _printKV('redirect', response.realUri);
       }
 
-      stringBuffer.writeln("headers:");
+      stringBuffer.writeln('headers:');
       response.headers.forEach(
-        (key, v) => _printKV(key, v.join("\r\n\t")),
+        (key, v) => _printKV(key, v.join('\r\n\t')),
       );
     }
     if (responseBody) {
-      stringBuffer.writeln("Response Text:");
+      stringBuffer.writeln('Response Text:');
       _printAll(response.toString());
     }
   }
 
   void _printKV(String key, Object? v) {
-    stringBuffer.writeln("   $key: $v");
+    stringBuffer.writeln('   $key: $v');
   }
 
   void _printAll(dynamic msg) {
-    msg?.toString().split("\n").forEach(stringBuffer.writeln);
+    msg?.toString().split('\n').forEach(stringBuffer.writeln);
   }
 }

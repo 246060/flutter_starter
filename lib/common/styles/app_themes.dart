@@ -1,5 +1,5 @@
-import "package:flutter/material.dart";
-import "package:flutter_starter/common/styles/styles.dart";
+import 'package:flutter/material.dart';
+import 'package:flutter_starter/common/styles/styles.dart';
 
 class AppThemes {
   factory AppThemes() => _instance;

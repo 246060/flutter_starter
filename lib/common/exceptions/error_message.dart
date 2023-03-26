@@ -3,8 +3,8 @@ enum ErrorCode { unknown }
 class ErrorMessage {
   ErrorMessage({
     this.code = ErrorCode.unknown,
-    this.title = "Error",
-    this.message = "Oops! something went wrong.",
+    this.title = 'Error',
+    this.message = 'Oops! something went wrong.',
     this.extra,
   });
 

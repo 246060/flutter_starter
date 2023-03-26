@@ -1,6 +1,6 @@
-import "package:flutter_starter/common/exceptions/exception_handler.dart";
-import "package:flutter_starter/common/repositories/sample/user.dart";
-import "package:flutter_starter/common/repositories/sample/user_repository.dart";
+import 'package:flutter_starter/common/exceptions/exception_handler.dart';
+import 'package:flutter_starter/common/repositories/sample/user.dart';
+import 'package:flutter_starter/common/repositories/sample/user_repository.dart';
 
 class SqliteUserRepository extends UserRepository {
   SqliteUserRepository({required this.exceptionHandler});

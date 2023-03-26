@@ -1,4 +1,4 @@
-import "package:flutter_starter/common/exceptions/error_message.dart";
+import 'package:flutter_starter/common/exceptions/error_message.dart';
 
 enum OperatorType { create, read, update, delete }
 

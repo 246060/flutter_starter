@@ -1,9 +1,9 @@
-import "package:flutter_starter/common/exceptions/error_message.dart";
-import "package:flutter_starter/common/exceptions/exceptions.dart";
-import "package:flutter_starter/common/repositories/dio_exception_handler.dart";
-import "package:flutter_starter/common/repositories/hive_exception_handler.dart";
-import "package:flutter_starter/common/repositories/repository_error_message.dart";
-import "package:flutter_starter/common/repositories/sqlite_exception_handler.dart";
+import 'package:flutter_starter/common/exceptions/error_message.dart';
+import 'package:flutter_starter/common/exceptions/exceptions.dart';
+import 'package:flutter_starter/common/repositories/dio_exception_handler.dart';
+import 'package:flutter_starter/common/repositories/hive_exception_handler.dart';
+import 'package:flutter_starter/common/repositories/repository_error_message.dart';
+import 'package:flutter_starter/common/repositories/sqlite_exception_handler.dart';
 
 abstract class RepositoryException extends BaseExceptionEx {
   RepositoryException({

@@ -1,5 +1,5 @@
-import "package:flutter_riverpod/flutter_riverpod.dart";
-import "package:flutter_starter/common/configs/config.dart";
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_starter/common/configs/config.dart';
 
 class ProviderLogger extends ProviderObserver {
   factory ProviderLogger() => _instance;

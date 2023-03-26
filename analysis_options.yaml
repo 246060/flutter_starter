@@ -21,6 +21,10 @@ analyzer:
     void_checks: error
     use_to_and_as_if_applicable: error
     use_test_throws_matchers: error
+    invalid_annotation_target: ignore
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
 
 linter:
 
@@ -96,7 +100,7 @@ linter:
     - avoid_escaping_inner_quotes
     - avoid_double_and_int_checks
     - avoid_catching_errors
-    - avoid_catches_without_on_clauses
+    #- avoid_catches_without_on_clauses
     - avoid_bool_literals_in_conditional_expressions
     - cancel_subscriptions
     - close_sinks
@@ -123,8 +127,8 @@ linter:
     #- always_specify_types
     #- avoid_classes_with_only_static_members
     #- avoid_implementing_value_types
-    - prefer_double_quotes
-#    - prefer_single_quotes
+    #    - prefer_double_quotes
+    - prefer_single_quotes
 
 
 

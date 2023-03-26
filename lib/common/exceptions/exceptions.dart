@@ -1,5 +1,5 @@
-import "package:flutter_starter/common/exceptions/error_message.dart";
-import "package:flutter_starter/common/exceptions/exception_handler.dart";
+import 'package:flutter_starter/common/exceptions/error_message.dart';
+import 'package:flutter_starter/common/exceptions/exception_handler.dart';
 
 abstract class BaseException implements Exception {
   BaseException({this.message, this.origin});
@@ -26,7 +26,7 @@ abstract class BaseExceptionEx extends BaseException {
 
 class ResourceNotFoundException extends BaseException {
   ResourceNotFoundException({dynamic message, super.origin})
-      : super(message: "resource[$message] not found");
+      : super(message: 'resource[$message] not found');
 }
 
 class DefaultExceptionEx extends BaseExceptionEx {
