@@ -1,49 +1,33 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_starter/common/exceptions/error_message.dart';
 import 'package:flutter_starter/common/exceptions/exception_handler.dart';
-import 'package:flutter_starter/common/repositories/repository_exception.dart';
 
 class DioExceptionHandler with ExceptionHandler {
   @override
   ErrorMessage handle(Exception exception) {
-    final origin = (exception as DioRepositoryException).origin! as DioError;
+    final origin = exception as DioError;
 
     if (origin.type == DioErrorType.connectionTimeout ||
         origin.type == DioErrorType.sendTimeout ||
         origin.type == DioErrorType.receiveTimeout) {
-      return handleTimeoutException(exception);
+      return handleTimeout(exception);
     } else if (origin.type == DioErrorType.badCertificate) {
-      return handleBadCertificateException(exception);
+      return handleBadCertificate(exception);
     } else if (origin.type == DioErrorType.badResponse) {
-      return handleBadResponseException(exception);
+      return handleBadResponse(exception);
     } else if (origin.type == DioErrorType.cancel) {
       return handleCancel(exception);
     } else if (origin.type == DioErrorType.connectionError) {
-      return handleConnectionErrorException(exception);
+      return handleConnectionError(exception);
     } else {
-      return handleException(exception);
+      return _handle(exception);
     }
   }
 
-  ErrorMessage handleTimeoutException(DioRepositoryException exception) =>
-      exception.errorMessage ?? ErrorMessage();
-
-  ErrorMessage handleBadCertificateException(
-    DioRepositoryException exception,
-  ) =>
-      exception.errorMessage ?? ErrorMessage();
-
-  ErrorMessage handleBadResponseException(DioRepositoryException exception) =>
-      exception.errorMessage ?? ErrorMessage();
-
-  ErrorMessage handleCancel(DioRepositoryException exception) =>
-      exception.errorMessage ?? ErrorMessage();
-
-  ErrorMessage handleConnectionErrorException(
-    DioRepositoryException exception,
-  ) =>
-      exception.errorMessage ?? ErrorMessage();
-
-  ErrorMessage handleException(DioRepositoryException exception) =>
-      exception.errorMessage ?? ErrorMessage();
+  ErrorMessage handleTimeout(DioError exception) => ErrorMessage();
+  ErrorMessage handleBadCertificate(DioError exception) => ErrorMessage();
+  ErrorMessage handleBadResponse(DioError exception) => ErrorMessage();
+  ErrorMessage handleCancel(DioError exception) => ErrorMessage();
+  ErrorMessage handleConnectionError(DioError exception) => ErrorMessage();
+  ErrorMessage _handle(DioError exception) => ErrorMessage();
 }

@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
 
     unawaited(
       HttpUserRepository(
-        exceptionHandler: DioExceptionHandler(),
         dio: Dio(
           BaseOptions(
             connectTimeout: const Duration(seconds: 5),
