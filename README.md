@@ -16,6 +16,26 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 
+### Before Start 
+run command on project root path
+```shell
+flutter pub run build_runner [build|watch] --delete-conflicting-outputs
+```
+#### [Built-in Commands](https://pub.dev/packages/build_runner)
+The build_runner package exposes a binary by the same name, which can be invoked 
+using dart run build_runner <command>.
+
+The available commands are build, watch, serve, and test.
+
+- build: Runs a single build and exits.
+- watch: Runs a persistent build server that watches the files system for edits and does rebuilds as necessary.
+- serve: Same as watch, but runs a development server as well.
+By default this serves the web and test directories, on port 8080 and 8081 respectively. See below for how to configure this.
+test: Runs a single build, creates a merged output directory, and then runs dart run test --precompiled <merged-output-dir>. See below for instructions on passing custom args to the test command.
+
+
+
+
 ## 변경
 - dio log interceptor
   - 기본 print 인데 app에서 사용하는 logger를 넘겨주면 로그가 보기 어렵게 나온다. 

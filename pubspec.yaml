@@ -38,18 +38,23 @@ dependencies:
   cupertino_icons: ^1.0.2
   device_info_plus: ^8.1.0
   dio: ^5.0.1
+  easy_debounce: ^2.0.3
   faker: ^2.1.0
   flutter:
     sdk: flutter
   flutter_riverpod: ^2.0.2
   flutter_slidable: ^2.0.0
+  freezed_annotation: ^2.2.0
   google_fonts: ^4.0.3
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   intl: ^0.18.0
   location: ^4.4.0
   logger: ^1.2.2
+  multiple_result: ^4.0.0
+  path: ^1.8.2
   riverpod_annotation: ^1.0.4
+  sqflite: ^2.2.6
 
   #shared_preferences: ^2.0.18
 
@@ -68,7 +73,11 @@ dev_dependencies:
 
   flutter_test:
     sdk: flutter
+  freezed: ^2.3.2
+  json_serializable: ^6.6.1
+  mockito: ^5.3.2
   riverpod_generator: ^1.0.4
+  sqflite_common_ffi: ^2.2.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
