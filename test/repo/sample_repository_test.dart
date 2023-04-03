@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_starter/common/configs/config.dart';
+import 'package:flutter_starter/core/configs/logger_config.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -7,8 +7,6 @@ import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 import 'sample_repository_test.mocks.dart';
-
-final log = getLogger();
 
 Future<String> getLocalDatabasePath() async =>
     join(await getDatabasesPath(), 'sqlite.db');
