@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_starter/core/exceptions/error_message.dart';
-import 'package:flutter_starter/core/exceptions/exception_handler.dart';
+import 'package:flutter_starter/core/error/exceptions/error_message.dart';
+import 'package:flutter_starter/core/error/exceptions/exception_handler.dart';
 
 class DioExceptionHandler with ExceptionHandler {
   @override

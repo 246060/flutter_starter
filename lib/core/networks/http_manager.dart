@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
 
-class NetworkClient {
-  factory NetworkClient() => _instance;
+class HttpManager {
+  factory HttpManager() => _instance;
 
-  NetworkClient._();
+  HttpManager._();
 
-  static final _instance = NetworkClient._();
+  static final _instance = HttpManager._();
 
   final Dio _base = Dio(
     BaseOptions(

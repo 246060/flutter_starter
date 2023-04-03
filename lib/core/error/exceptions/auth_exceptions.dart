@@ -1,4 +1,4 @@
-import 'package:flutter_starter/core/exceptions/exceptions.dart';
+import 'package:flutter_starter/core/error/exceptions/exceptions.dart';
 
 /// auth marker
 mixin AuthenticationException {}
