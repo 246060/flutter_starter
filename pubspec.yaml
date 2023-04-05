@@ -51,6 +51,7 @@ dependencies:
   intl: ^0.18.0
   location: ^4.4.0
   logger: ^1.2.2
+  mocktail: ^0.3.0
   multiple_result: ^4.0.0
   path: ^1.8.2
   riverpod_annotation: ^1.0.4
