@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/core/configs/logger_config.dart';
-import 'package:flutter_starter/presentation/styles/app_themes.dart';
-import 'package:flutter_starter/presentation/views/screens/home_screen.dart';
+
+import 'extra/configs/logger_config.dart';
+import 'presentation/styles/app_themes.dart';
+import 'presentation/views/screens/home_screen.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
