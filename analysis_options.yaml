@@ -42,7 +42,7 @@ linter:
   rules:
     # avoid_print: false  # Uncomment to disable the `avoid_print` rule
     # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
-    - sort_pub_dependencies
+    #- sort_pub_dependencies
     - depend_on_referenced_packages
     - void_checks
     - use_to_and_as_if_applicable
