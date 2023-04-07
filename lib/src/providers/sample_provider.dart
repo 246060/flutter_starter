@@ -2,12 +2,11 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final asyncSampleProvider =
-    AsyncNotifierProvider.autoDispose<_AsyncSampleProvider, int>(
-  _AsyncSampleProvider.new,
+final asyncSampleProvider = AsyncNotifierProvider<AsyncSampleProvider, int>(
+  AsyncSampleProvider.new,
 );
 
-class _AsyncSampleProvider extends AsyncNotifier<int> {
+class AsyncSampleProvider extends AsyncNotifier<int> {
   @override
   FutureOr<int> build() => 0;
 

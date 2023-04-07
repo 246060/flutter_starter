@@ -1,3 +1,5 @@
+import 'package:easy_debounce/easy_debounce.dart';
+import 'package:easy_debounce/easy_throttle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -24,7 +26,13 @@ class _MyHomePageState extends ConsumerState<HomeScreen> {
   }
 
   Future<void> _incrementCounter() async {
-    await ref.read(asyncSampleProvider.notifier).incrementCounter();
+    EasyThrottle.throttle('throttle1', const Duration(seconds: 1), () async {
+      await ref.read(asyncSampleProvider.notifier).incrementCounter();
+    });
+
+    EasyDebounce.debounce('debounce1', const Duration(seconds: 1), () async {
+      await ref.read(asyncSampleProvider.notifier).incrementCounter();
+    });
   }
 
   @override
