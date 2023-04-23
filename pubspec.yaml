@@ -59,6 +59,7 @@ dependencies:
   web_socket_channel: ^2.3.0
   #shared_preferences: ^2.0.18
   #sqflite: ^2.2.4+1
+  path_provider: ^2.0.14
   app_domain:
     path: packages/domain
   app_common:

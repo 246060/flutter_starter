@@ -1,3 +1,21 @@
 library domain;
 
-export 'src/repositories/sample_repository.dart';
+export 'src/models/dto/user/repo/create_user_rp_in.dart';
+export 'src/models/dto/user/repo/create_user_rp_out.dart';
+export 'src/models/dto/user/repo/delete_user_rp_in.dart';
+export 'src/models/dto/user/repo/delete_user_rp_out.dart';
+export 'src/models/dto/user/repo/get_user_rp_in.dart';
+export 'src/models/dto/user/repo/get_user_rp_out.dart';
+export 'src/models/dto/user/repo/update_user_rp_in.dart';
+export 'src/models/dto/user/repo/update_user_rp_out.dart';
+export 'src/models/dto/user/use_case/create_user_uc_in.dart';
+export 'src/models/dto/user/use_case/create_user_uc_out.dart';
+export 'src/models/dto/user/use_case/delete_user_uc_in.dart';
+export 'src/models/dto/user/use_case/delete_user_uc_out.dart';
+export 'src/models/dto/user/use_case/get_user_uc_in.dart';
+export 'src/models/dto/user/use_case/get_user_uc_out.dart';
+export 'src/models/dto/user/use_case/update_user_uc_in.dart';
+export 'src/models/dto/user/use_case/update_user_uc_out.dart';
+export 'src/models/entity/user.dart';
+export 'src/models/vo/address/address.dart';
+export 'src/repositories/user_repository.dart';

@@ -1,15 +1,17 @@
-import 'package:app_common/common.dart';
 import 'package:flutter/material.dart';
 
-import 'configs/styles/app_themes.dart';
-import 'screens/home_screen.dart';
+import 'config/logger_generator.dart';
+import 'config/style/app_themes.dart';
+import 'screen/home_screen.dart';
 
 class App extends StatelessWidget {
-  const App({super.key});
+  App({super.key});
+
+  final _log = LoggerGenerator('App').getLogger();
 
   @override
   Widget build(BuildContext context) {
-    log.i('MyApp Build Started...');
+    _log.i('MyApp Build Started...');
 
     return MaterialApp(
       title: 'flutter quick start project',

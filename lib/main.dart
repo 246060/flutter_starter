@@ -1,22 +1,23 @@
 import 'dart:async';
 
-import 'package:app_common/common.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'src/app.dart';
-import 'src/configs/provider_logger_config.dart';
+import 'src/config/logger_generator.dart';
+import 'src/config/provider_logger_config.dart';
 
 Future<void> main() async {
-  log.i('flutter main function started...');
+  final log = LoggerGenerator('main').getLogger();
 
   await runZonedGuarded(() async {
+    log.i('flutter main function started...');
     WidgetsFlutterBinding.ensureInitialized();
 
     runApp(
       ProviderScope(
         observers: [ProviderLogger()],
-        child: const App(),
+        child: App(),
       ),
     );
   }, (error, stack) {
